@@ -2,15 +2,13 @@ import React, { useContext } from 'react'
 import { AppBar, Tabs, Tab } from '@material-ui/core'
 import { MyContext } from '../../context'
 
-export default ({ onSelect }) => {
-  const { muscles } = useContext(MyContext)
+export default () => {
+  const { muscles, onSelect } = useContext(MyContext)
 
   const index = 0
 
-  const onIndexSelect = (e, index) => {
-    console.log(index)
+  const onIndexSelect = (e, index) => 
     onSelect(index === 0 ? '' : muscles[index - 1])
-  }
 
   return (
     <AppBar position="static">

@@ -59,7 +59,8 @@ export default () => {
 
   const getContext = () => ({
     muscles,
-    onCreate: handleExerciseCreate
+    onCreate: handleExerciseCreate,
+    onSelect: handleCategorySelected
   })
 
   return (
@@ -77,7 +78,7 @@ export default () => {
           onSelectEdit={handleExerciseSelectEdit}
           onEdit={handleExerciseEdit}
         />
-        <Footer onSelect={handleCategorySelected} />
+        <Footer />
       </Fragment>
     </MyContext.Provider>
   )
