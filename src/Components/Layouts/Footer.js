@@ -3,13 +3,12 @@ import { AppBar, Tabs, Tab } from '@material-ui/core'
 import { MyContext } from '../../context'
 
 export default ({ onSelect }) => {
-  const { muscles, category } = useContext(MyContext)
+  const { muscles } = useContext(MyContext)
 
-  const index = category
-    ? muscles.findIndex(group => group === category) + 1
-    : 0
+  const index = 0
 
   const onIndexSelect = (e, index) => {
+    console.log(index)
     onSelect(index === 0 ? '' : muscles[index - 1])
   }
 

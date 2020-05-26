@@ -77,7 +77,7 @@ export default () => {
           onSelectEdit={handleExerciseSelectEdit}
           onEdit={handleExerciseEdit}
         />
-        <Footer category={category} onSelect={handleCategorySelected} />
+        <Footer onSelect={handleCategorySelected} />
       </Fragment>
     </MyContext.Provider>
   )
