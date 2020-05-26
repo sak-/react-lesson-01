@@ -6,6 +6,12 @@ import { muscles, exercises as ex } from '../store'
 import { MyContext } from '../context'
 
 export default () => {
+  // const initExercise = {
+  //   id: null,
+  //   title: 'Welcome!',
+  //   description: 'Please select an exercise from the list of left.'
+  // }
+
   const [exercises, setExercises] = useState(ex)
   const [exercise, setExercise] = useState({})
   const [editMode, setEditMode] = useState(false)
@@ -60,7 +66,13 @@ export default () => {
   const getContext = () => ({
     muscles,
     onCreate: handleExerciseCreate,
-    onSelect: handleCategorySelected
+    onCategorySelect: handleCategorySelected,
+    editMode,
+    category,
+    onSelect: handleExerciseSelected,
+    onDelete: handleExerciseDelete,
+    onSelectEdit: handleExerciseSelectEdit,
+    onEdit: handleExerciseEdit
   })
 
   return (
@@ -68,16 +80,7 @@ export default () => {
       <Fragment>
         <CssBaseline />
         <Header />
-        <Exercises
-          category={category}
-          exercise={exercise}
-          exercises={getExercisesByMuscles()}
-          editMode={editMode}
-          onSelect={handleExerciseSelected}
-          onDelete={handleExerciseDelete}
-          onSelectEdit={handleExerciseSelectEdit}
-          onEdit={handleExerciseEdit}
-        />
+        <Exercises exercise={exercise} exercises={getExercisesByMuscles()} />
         <Footer />
       </Fragment>
     </MyContext.Provider>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import {
   Paper,
   Grid,
@@ -12,16 +12,10 @@ import {
 import { Edit, Delete } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core/styles'
 import Form from './Form'
+import { MyContext } from '../../context'
 
 export default ({
-  muscles,
-  editMode,
   exercises,
-  category,
-  onSelect,
-  onDelete,
-  onSelectEdit,
-  onEdit,
   exercise,
   exercise: {
     id,
@@ -29,6 +23,16 @@ export default ({
     description = 'Please select an exercise from the list of left.'
   }
 }) => {
+  const {
+    muscles,
+    editMode,
+    category,
+    onSelect,
+    onDelete,
+    onSelectEdit,
+    onEdit
+  } = useContext(MyContext)
+
   const useStyles = makeStyles(theme => ({
     paper: {
       padding: theme.spacing(1),
