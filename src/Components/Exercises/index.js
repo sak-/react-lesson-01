@@ -15,7 +15,6 @@ import Form from './Form'
 import { MyContext } from '../../context'
 
 export default ({
-  exercises,
   exercise,
   exercise: {
     id,
@@ -25,6 +24,7 @@ export default ({
 }) => {
   const {
     muscles,
+    exercises,
     editMode,
     category,
     onSelect,
